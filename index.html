@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Service Directory</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-madurai: "Hind Madurai", sans-serif;
+            --font-inter: "Inter", sans-serif;
+            --font-roboto: "Roboto", sans-serif;
+
+            --color-primary: #00A63E;
+            --color-primary-light: rgba(65, 255, 107, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-madurai">
+    <header class="flex justify-between items-center px-[3.75rem] py-6">
+        <div class="flex justify-between items-center gap-2.5">
+            <img class="size-[3.125rem]" src="./assets/logo.png" alt="logo">
+            <h3 class="text-[#006747] font-roboto font-black text-xl">Emergency<br>Service</h3>
+        </div>
+        <div class="flex justify-between items-center gap-5">
+            <div
+                class="bg-primary-light px-9 py-3 flex justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6">
+                <span>0</span>
+                <img class="size-7" src="./assets/heart.png" alt="heart">
+            </div>
+            <div
+                class="bg-primary-light px-5 py-3 flex justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6">
+                <span>100</span>
+                <img class="size-7" src="./assets/coin.png" alt="coin">
+            </div>
+            <div class="bg-primary rounded-[3.125rem] px-9 py-3 font-semibold text-base text-white">
+                2 Copy
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
