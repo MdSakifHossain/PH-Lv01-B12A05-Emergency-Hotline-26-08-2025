@@ -14,6 +14,9 @@
 
             --color-primary: #00A63E;
             --color-primary-light: rgba(65, 255, 107, 0.1);
+            --color-subtitle: #5C5C5C;
+            --color-tag-bg: #F2F2F2;
+            --color-call-btn: #D4D6D5;
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -41,7 +44,7 @@
             </div>
         </div>
     </header>
-    <main>
+    <main class="bg-[#F5FFF6]">
         <!-- banner section -->
         <section
             class="bg-gradient-to-r from-[#013223] via-[#006747] to-[#013223] font-madurai flex flex-col items-center justify-center gap-3 px-[3.75rem] py-5">
@@ -55,31 +58,40 @@
 
         <!-- card and history grid -->
         <section class="px-16 py-12 w-full grid grid-cols-4 gap-8">
-            <div class="col-span-3 grid grid-cols-3 gap-8">
-                <div>
+            <div id="card-container" class="col-span-3 grid grid-cols-3 gap-8">
+                <!-- <div class="p-8 bg-white shadow rounded-xl flex flex-col gap-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center justify-center p-3.5 bg-[#FFE3E2] rounded-2xl">
                             <img class="size-8 " src="./assets/card-img/emergency.png" alt="emergency">
                         </div>
                         <i class="fa-regular fa-heart text-2xl"></i>
                     </div>
-
-
-                </div>
-                <div>Card - 2</div>
-                <div>Card - 3</div>
-                <div>Card - 4</div>
-                <div>Card - 5</div>
-                <div>Card - 6</div>
-                <div>Card - 7</div>
-                <div>Card - 8</div>
-                <div>Card - 9</div>
+                    <div class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-0.5">
+                            <h2 class="font-madurai font-bold text-2xl leading-8">Fire Service Number</h2>
+                            <p class="font-roboto text-lg text-subtitle">Fire Service</p>
+                        </div>
+                        <div class="flex flex-col gap-0.5 items-start">
+                            <h2 class="font-roboto font-bold text-[2rem]">999</h2>
+                            <p class="px-4 py-1.5 bg-tag-bg rounded-full">Fire</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 *:rounded-lg *:py-2.5 *:font-roboto *:text-base">
+                            <button class="border border-call-btn text-subtitle"><i class="fa-regular fa-copy"></i>
+                                Copy</button>
+                            <button class="bg-primary border-0 text-white"><i class="fa-solid fa-phone"></i>
+                                Call</button>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-            <div>
+            <div class="rounded-xl">
+                <i class="fa-regular fa-clock"></i>
                 call history
             </div>
         </section>
     </main>
+
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
