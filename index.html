@@ -25,25 +25,26 @@
 </head>
 
 <body class="font-madurai">
-    <header class="flex justify-between items-center px-[3.75rem] py-6">
-        <img src="./assets/Logo.png" alt="logo">
-        <div class="flex justify-between items-center gap-5">
+    <header class="flex justify-between items-center gap-8 px-5 md:px-[3.75rem] py-4 md:py-6">
+        <img class="w-40 md:w-auto" src="./assets/Logo.png" alt="logo">
+        <div class="grid grid-cols-2 gap-3 md:flex md:justify-between md:items-center md:gap-5">
             <div
-                class="bg-primary-light px-9 py-3 flex justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6 font-inter">
+                class="bg-primary-light px-5 py-3 flex justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6 font-inter">
                 <span>0</span>
                 <img class="size-7" src="./assets/heart.png" alt="heart">
             </div>
             <div
-                class="bg-primary-light px-5 py-3 flex justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6">
+                class="bg-primary-light px-5 py-3 flex justify-center md:justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6">
                 <span>100</span>
                 <img class="size-7" src="./assets/coin.png" alt="coin">
             </div>
-            <div class="bg-primary rounded-[3.125rem] px-9 py-3 font-semibold text-base text-white">
+            <div
+                class="col-span-2 bg-primary rounded-[3.125rem] px-9 py-3 font-semibold text-base text-white flex justify-center items-center">
                 2 Copy
             </div>
         </div>
     </header>
-    <main class="bg-[#F5FFF6]">
+    <main class="bg-[#F5FFF6] hidden">
         <!-- banner section -->
         <section
             class="bg-gradient-to-r from-[#013223] via-[#006747] to-[#013223] font-madurai flex flex-col items-center justify-center gap-3 px-[3.75rem] py-5">
