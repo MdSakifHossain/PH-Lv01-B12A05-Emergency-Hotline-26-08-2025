@@ -22,15 +22,15 @@ const cardContainer = document.getElementById("card-container");
             </div>
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col gap-0.5">
-                    <h2 class="font-madurai font-bold text-2xl leading-8">${
+                    <h2 class="font-madurai font-bold text-2xl leading-8 truncate">${
                       cardData.service
                     }</h2>
-                    <p class="font-roboto text-lg text-subtitle">${
+                    <p class="font-roboto text-lg text-subtitle truncate">${
                       cardData.description
                     }</p>
                 </div>
                 <div class="flex flex-col gap-0.5 items-start">
-                    <h2 class="font-roboto font-bold text-[2rem]">${
+                    <h2 class="font-roboto font-bold text-[2rem] w-full overflow-hidden text-ellipsis">${
                       cardData.number
                     }</h2>
                     <p class="px-4 py-1.5 bg-tag-bg rounded-full">${
