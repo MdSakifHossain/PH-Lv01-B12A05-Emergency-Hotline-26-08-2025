@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Emergency Service Directory</title>
     <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -30,16 +31,16 @@
         <div class="grid grid-cols-2 gap-3 md:flex md:justify-between md:items-center md:gap-5">
             <div
                 class="bg-primary-light px-5 py-3 flex justify-center items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6 font-inter">
-                <span>0</span>
+                <span id="heart-count-element">0</span>
                 <img class="size-7" src="./assets/heart.png" alt="heart">
             </div>
             <div
-                class="bg-primary-light px-5 py-3 flex justify-center md:justify-between items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6">
-                <span>100</span>
+                class="bg-primary-light px-5 py-3 flex justify-center items-center gap-2.5 rounded-[3.125rem] font-black text-black text-lg leading-6 font-inter">
+                <span id="coin-count-element">0</span>
                 <img class="size-7" src="./assets/coin.png" alt="coin">
             </div>
             <div
-                class="col-span-2 bg-primary rounded-[3.125rem] px-9 py-3 font-semibold text-base text-white flex justify-center items-center">
+                class="col-span-2 bg-primary rounded-[3.125rem] px-9 py-3 font-semibold text-base text-white flex justify-center items-center font-inter">
                 2 Copy
             </div>
         </div>

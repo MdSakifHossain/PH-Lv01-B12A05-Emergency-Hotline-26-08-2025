@@ -1,7 +1,5 @@
 import { helplineData } from "./utils.js";
 
-const cardContainer = document.getElementById("card-container");
-
 // createCardElements() && appendCardElements()
 (() => {
   helplineData.forEach((cardData) => {
@@ -14,11 +12,11 @@ const cardContainer = document.getElementById("card-container");
                     ? "bg-[#DFEFFF]"
                     : "bg-[#FFE3E2]"
                 }">
-                    <img class="size-8 " src=${cardData.image} alt=${
-      cardData.description
-    }>
+                    <img class="size-8 " src=${cardData.image}
+                      alt=${cardData.description}
+                    />
                 </div>
-                <i class="fa-regular fa-heart text-2xl transition-all duration-200 ease-out hover:scale-110"></i>
+                <i class="heart-icon-element fa-regular fa-heart text-2xl transition-all duration-200 ease-out hover:scale-110"></i>
             </div>
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col gap-0.5">
@@ -40,12 +38,58 @@ const cardContainer = document.getElementById("card-container");
                 <div class="grid grid-cols-2 gap-2 *:rounded-lg *:py-2.5 *:font-roboto *:text-base">
                     <button class="border border-call-btn text-subtitle transition-all ease-out duration-200 hover:text-black hover:border-black"><i class="fa-regular fa-copy"></i>
                         Copy</button>
-                    <button class="bg-primary border-0 text-white transitoin-all ease-out duration-150 hover:bg-primary/50"><i class="fa-solid fa-phone"></i>
+                    <button class="call-button-element bg-primary border-0 text-white transitoin-all ease-out duration-150 hover:bg-primary/50"><i class="fa-solid fa-phone"></i>
                         Call</button>
                 </div>
             </div>
         </div>
     `;
-    cardContainer.innerHTML += cardHTML;
+
+    document.getElementById("card-container").innerHTML += cardHTML;
   });
 })();
+
+// grabbing elements
+const heartIconElements = document.querySelectorAll(".heart-icon-element");
+const heartCountElement = document.querySelector("#heart-count-element");
+const coinCountElement = document.querySelector("#coin-count-element");
+const callButtonElements = document.querySelectorAll(".call-button-element");
+
+// declaring variables
+const defaultCoinValue = 100;
+const perCallCost = 20;
+let heartCountNumber = 0;
+let currentCoinCountNumber = defaultCoinValue;
+
+// injecting default vlaues
+(() => {
+  heartCountElement.innerText = heartCountNumber;
+  coinCountElement.innerText = currentCoinCountNumber;
+})();
+
+// all the main logic starts below:
+heartIconElements.forEach((element) => {
+  element.addEventListener("click", () => {
+    heartCountNumber += 1;
+    heartCountElement.innerText = heartCountNumber;
+  });
+});
+
+callButtonElements.forEach((element, index) => {
+  element.addEventListener("click", () => {
+    if (currentCoinCountNumber < 20) {
+      alert(
+        `❌ You dont have enough balance.\n❌ You'll need at least ${perCallCost} coins`
+      );
+      return;
+    }
+
+    // accessing the data which i am gonna need to alert
+    const currentCardObj = helplineData[index];
+
+    // doing the actual stuff which this function was supposed to do.
+    alert(`Calling ${currentCardObj.service} ${currentCardObj.number}`);
+    currentCoinCountNumber -= perCallCost;
+    coinCountElement.innerText = currentCoinCountNumber;
+  });
+});
