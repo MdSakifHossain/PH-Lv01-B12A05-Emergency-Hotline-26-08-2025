@@ -36,7 +36,7 @@ import { helplineData } from "./utils.js";
                     }</p>
                 </div>
                 <div class="grid grid-cols-2 gap-2 *:rounded-lg *:py-2.5 *:font-roboto *:text-base">
-                    <button class="border border-call-btn text-subtitle transition-all ease-out duration-200 hover:text-black hover:border-black"><i class="fa-regular fa-copy"></i>
+                    <button class="copy-btn-element border border-call-btn text-subtitle transition-all ease-out duration-200 hover:text-black hover:border-black"><i class="fa-regular fa-copy"></i>
                         Copy</button>
                     <button class="call-button-element bg-primary border-0 text-white transitoin-all ease-out duration-150 hover:bg-primary/50"><i class="fa-solid fa-phone"></i>
                         Call</button>
@@ -54,17 +54,21 @@ const heartIconElements = document.querySelectorAll(".heart-icon-element");
 const heartCountElement = document.querySelector("#heart-count-element");
 const coinCountElement = document.querySelector("#coin-count-element");
 const callButtonElements = document.querySelectorAll(".call-button-element");
+const copyButtonElements = document.querySelectorAll(".copy-btn-element");
+const copyCountElement = document.querySelector("#copy-count-element");
 
 // declaring variables
 const defaultCoinValue = 100;
 const perCallCost = 20;
 let heartCountNumber = 0;
 let currentCoinCountNumber = defaultCoinValue;
+let currentCopyCount = 0;
 
 // injecting default vlaues
 (() => {
   heartCountElement.innerText = heartCountNumber;
   coinCountElement.innerText = currentCoinCountNumber;
+  copyCountElement.innerText = currentCopyCount;
 })();
 
 // all the main logic starts below:
@@ -91,5 +95,24 @@ callButtonElements.forEach((element, index) => {
     alert(`Calling ${currentCardObj.service} ${currentCardObj.number}`);
     currentCoinCountNumber -= perCallCost;
     coinCountElement.innerText = currentCoinCountNumber;
+  });
+});
+
+copyButtonElements.forEach((element, index) => {
+  // accessing the data which i am gonna need to alert
+  const currentCardObj = helplineData[index];
+
+  // adding event listeners
+  element.addEventListener("click", () => {
+    navigator.clipboard
+      .writeText(currentCardObj.number)
+      .then(() => {
+        alert("Text copied: " + currentCardObj.number);
+        currentCopyCount += 1;
+        copyCountElement.innerText = currentCopyCount;
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
   });
 });
