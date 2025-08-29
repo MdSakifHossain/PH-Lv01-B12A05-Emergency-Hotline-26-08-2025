@@ -110,7 +110,11 @@ callButtonElements.forEach((element, index) => {
 
     // doing the actual stuff which this function was supposed to do.
     alert(`Calling ${currentCardObj.service} ${currentCardObj.number}`);
+
+    // calculate
     currentCoinCountNumber -= perCallCost;
+
+    // ui updation
     coinCountElement.innerText = currentCoinCountNumber;
     callHistoryContainerElement.innerHTML += `
       <div class="p-4 flex justify-between items-center gap-4 rounded-lg bg-history-card-bg">
