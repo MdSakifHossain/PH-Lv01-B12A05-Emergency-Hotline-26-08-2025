@@ -56,6 +56,12 @@ const coinCountElement = document.querySelector("#coin-count-element");
 const callButtonElements = document.querySelectorAll(".call-button-element");
 const copyButtonElements = document.querySelectorAll(".copy-btn-element");
 const copyCountElement = document.querySelector("#copy-count-element");
+const callHistoryContainerElement = document.querySelector(
+  "#call-history-container-element"
+);
+const callHistoryClearButton = document.querySelector(
+  "#call-history-clear-button"
+);
 
 // declaring variables
 const defaultCoinValue = 100;
@@ -63,12 +69,23 @@ const perCallCost = 20;
 let heartCountNumber = 0;
 let currentCoinCountNumber = defaultCoinValue;
 let currentCopyCount = 0;
+let callHistoryCount = 0;
 
-// injecting default vlaues
+// helper functions
+const manageCallHistoryButton = (count) => {
+  if (count === 0) {
+    callHistoryClearButton.classList.add("hidden");
+  } else {
+    callHistoryClearButton.classList.remove("hidden");
+  }
+};
+
+// injecting default vlaues and styles
 (() => {
   heartCountElement.innerText = heartCountNumber;
   coinCountElement.innerText = currentCoinCountNumber;
   copyCountElement.innerText = currentCopyCount;
+  manageCallHistoryButton(callHistoryCount);
 })();
 
 // all the main logic starts below:
@@ -95,6 +112,20 @@ callButtonElements.forEach((element, index) => {
     alert(`Calling ${currentCardObj.service} ${currentCardObj.number}`);
     currentCoinCountNumber -= perCallCost;
     coinCountElement.innerText = currentCoinCountNumber;
+    callHistoryContainerElement.innerHTML += `
+      <div class="p-4 flex justify-between items-center gap-4 rounded-lg bg-history-card-bg">
+          <div class="flex flex-col gap-1">
+              <h4 class="font-inter font-semibold text-lg">${
+                currentCardObj.service
+              }</h4>
+              <p class="font-madurai text-subtitle">${currentCardObj.number}</p>
+          </div>
+          <p class="font-madurai text-lg">${new Date().toLocaleTimeString()}</p>
+      </div>
+  `;
+
+    callHistoryCount += 1;
+    manageCallHistoryButton(callHistoryCount);
   });
 });
 
@@ -115,4 +146,10 @@ copyButtonElements.forEach((element, index) => {
         console.error("Failed to copy text: ", err);
       });
   });
+});
+
+callHistoryClearButton.addEventListener("click", () => {
+  callHistoryContainerElement.innerHTML = ``;
+  callHistoryCount = 0;
+  manageCallHistoryButton(callHistoryCount);
 });
